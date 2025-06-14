@@ -17,7 +17,8 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
+          cache: 'maven'
 
       - name: Build jar with Maven
         run: |
-          mvn clean package
+          mvn -B clean package
