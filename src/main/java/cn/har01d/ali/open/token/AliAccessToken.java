@@ -1,4 +1,4 @@
-package cn.har01d.alitoken;
+package cn.har01d.ali.open.token;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

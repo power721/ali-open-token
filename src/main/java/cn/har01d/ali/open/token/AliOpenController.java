@@ -1,4 +1,4 @@
-package cn.har01d.alitoken;
+package cn.har01d.ali.open.token;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +20,8 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("/alipan")
-public class AliPanController {
-    private static Logger logger = LoggerFactory.getLogger(AliPanController.class);
+public class AliOpenController {
+    private static Logger logger = LoggerFactory.getLogger(AliOpenController.class);
     private static final String ACCESS_TOKEN_URL = "https://openapi.alipan.com/oauth/access_token";
     private final RestTemplate restTemplate;
 
@@ -34,7 +34,7 @@ public class AliPanController {
     @Value("${ali_callback}")
     private String redirectUri;
 
-    public AliPanController(RestTemplateBuilder builder) {
+    public AliOpenController(RestTemplateBuilder builder) {
         this.restTemplate = builder.build();
     }
 

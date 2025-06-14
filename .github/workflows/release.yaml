@@ -26,17 +26,15 @@ jobs:
 
       - name: Build native with Maven
         run: |
-          mvn -B -Pnative \
-              -Dnative.image.cache=true \
-              -Dnative-image.parallelism=4 \
-              -DskipTests \
-              package
-          chmod +x target/ali-open-token
+          mvn -B -Pnative clean package
           cd target
+          chmod +x ali-open-token
+          strip --strip-debug ali-open-token
           tar zcvf ali-open-token.tar.gz ali-open-token
           ls -lh
 
       - name: Create release and upload binary
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
           files: |

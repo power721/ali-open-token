@@ -11,8 +11,8 @@
     <groupId>cn.har01d</groupId>
     <artifactId>ali-open-token</artifactId>
     <version>1.0.0</version>
-    <name>AliToken</name>
-    <description>AliToken</description>
+    <name>AliOpenToken</name>
+    <description>AliOpenToken</description>
     <url/>
     <licenses>
         <license/>
@@ -62,7 +62,7 @@
                 </executions>
                 <configuration>
                     <imageName>ali-open-token</imageName>
-                    <mainClass>cn.har01d.alitoken.AliTokenApplication</mainClass>
+                    <mainClass>cn.har01d.ali.open.token.AliOpenTokenApplication</mainClass>
                     <buildArgs>
                         <buildArg>
                             --enable-http
@@ -74,14 +74,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
