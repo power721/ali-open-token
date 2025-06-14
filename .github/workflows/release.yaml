@@ -1,10 +1,7 @@
 name: Release jar and native binary
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - master
     tags:
       - '*'
 
@@ -20,7 +17,6 @@ jobs:
         with:
           java-version: '21'
           distribution: 'graalvm'
-          components: 'native-image'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cache: 'maven'
 
@@ -34,7 +30,6 @@ jobs:
           ls -lh
 
       - name: Create release and upload binary
-        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
           files: |
