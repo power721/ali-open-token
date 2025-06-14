@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阿里云盘Open refresh token</title>
+    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    <style>
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 6px 10px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      resize: none;
+    }
+    body {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    }
+    .main {
+      width: 700px;
+    }
+    .error {
+        color: red;
+        font-size: 18px;
+    }
+    .info {
+        margin-bottom: 16px;
+    }
+    .btn {
+      background-color: #008CBA;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      float: right;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    </style>
+</head>
+<body>
+<h2><a href="https://ycyup.cn/alipan/authorize">阿里云盘Open refresh token</a></h2>
+
+<div class="info">
+在配置页面 -> 高级设置 -> 开放Token认证URL  输入以下地址：
+<br>
+https://ycyup.cn/alipan/access_token
+</div>
+
+<div class="main">
+{{#error}}
+    <div class="error">
+        错误：
+        {{message}}
+    </div>
+{{/error}}
+    <div>
+        <label for="token">Refresh token:</label>
+    </div>
+    <div>
+        <textarea id="token" name="token" autofocus="true">{{token}}</textarea>
+    </div>
+    <div>
+        <button class="btn" data-clipboard-target="#token">复制</button>
+    </div>
+</div>
+<script>
+    new ClipboardJS('.btn');
+</script>
+</body>
+</html>
